@@ -1,10 +1,74 @@
-import { ChevronLeft, ChevronRight, Layers, BookOpen, Globe, Monitor, BarChart2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, Layers } from "lucide-react";
 import SidebarLink from "./SidebarLink";
 import SidebarCategory from "./SidebarCategory";
+import { Icons } from "../utils/icons";
 
 interface ExpandableSidebarProps {
   isExpanded: boolean;
 }
+
+interface SidebarCategoryItem {
+  type: "category";
+  title: string;
+}
+
+interface SidebarLinkItem {
+  type: "link";
+  href: string;
+  icon: string;
+  text: string;
+}
+
+type SidebarMenuItem = SidebarCategoryItem | SidebarLinkItem;
+
+const sidebarMenu: SidebarMenuItem[] = [
+  {
+    type: "category",
+    title: "Education",
+  },
+  {
+    type: "link",
+    href: "#",
+    icon: "BookOpen",
+    text: "Productivity",
+  },
+  {
+    type: "link",
+    href: "#",
+    icon: "BookOpen",
+    text: "Research",
+  },
+  {
+    type: "category",
+    title: "Language Learning",
+  },
+  {
+    type: "link",
+    href: "#",
+    icon: "Globe",
+    text: "Language Learning",
+  },
+  {
+    type: "category",
+    title: "Technology",
+  },
+  {
+    type: "link",
+    href: "#",
+    icon: "Monitor",
+    text: "Technology",
+  },
+  {
+    type: "category",
+    title: "Website",
+  },
+  {
+    type: "link",
+    href: "#",
+    icon: "BarChart2",
+    text: "Website",
+  },
+];
 
 export default function ExpandableSidebar({ isExpanded }: ExpandableSidebarProps) {
   return (
@@ -20,25 +84,18 @@ export default function ExpandableSidebar({ isExpanded }: ExpandableSidebarProps
           <span className="text-xl font-bold tracking-tight">Clipit</span>
         </div>
         <nav className="flex-1 flex flex-col gap-2">
-          <SidebarCategory title="Education" />
-          <SidebarLink href="#" icon={BookOpen}>
-            Productivity
-          </SidebarLink>
-          <SidebarLink href="#" icon={BookOpen}>
-            Research
-          </SidebarLink>
-          <SidebarCategory title="Language Learning" />
-          <SidebarLink href="#" icon={Globe}>
-            Language Learning
-          </SidebarLink>
-          <SidebarCategory title="Technology" />
-          <SidebarLink href="#" icon={Monitor}>
-            Technology
-          </SidebarLink>
-          <SidebarCategory title="Website" />
-          <SidebarLink href="#" icon={BarChart2}>
-            Website
-          </SidebarLink>
+          {sidebarMenu.map((item, index) => {
+            if (item.type === "category") {
+              return <SidebarCategory key={index} title={item.title} />;
+            } else if (item.type === "link") {
+              return (
+                <SidebarLink key={index} href={item.href} icon={item.icon}>
+                  {item.text}
+                </SidebarLink>
+              );
+            }
+            return null;
+          })}
         </nav>
       </div>
     </aside>

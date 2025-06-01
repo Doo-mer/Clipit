@@ -18,15 +18,15 @@ export default function MainContent() {
         <TabButton className="ml-auto">정렬</TabButton>
       </div>
       {/* 콘텐츠 영역 */}
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(292px,1fr))] gap-8 flex-1 justify-items-start px-8">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(292px,1fr))] gap-x-8 gap-y-8 px-8">
         {/* Paste 박스 */}
-        <div className="border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center w-[292px] h-[298px] cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition flex-shrink-0">
+        <div className="border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center h-[298px] cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition">
           <PlusSquare size={48} className="text-gray-400 mb-2" />
           <span className="text-gray-500">Paste any posts!</span>
         </div>
         {/* 예시 카드 */}
         <ContentCard
-          imageSrc="/example-chart.png"
+          imageSrc="thumnail.jpg"
           date="뉴스클립 | 2025.05.30"
           title="우리나라 재택 근무 입수가 세계 꼴찌인 이유는?"
           description="자료: 근무와 사회 문화의 관계"
@@ -38,7 +38,7 @@ export default function MainContent() {
         />
         {/* 빈 카드 */}
         <ContentCard
-          imageSrc="/example-chart.png"
+          imageSrc="thumnail.jpg"
           date="뉴스클립 | 2025.05.30"
           title="우리나라 재택 근무 입수가 세계 꼴찌인 이유는?"
           description="자료: 근무와 사회 문화의 관계"
@@ -49,7 +49,7 @@ export default function MainContent() {
           showSmallIcon
         />
         <ContentCard
-          imageSrc="/example-chart.png"
+          imageSrc="thumnail.jpg"
           date="뉴스클립 | 2025.05.30"
           title="우리나라 재택 근무 입수가 세계 꼴찌인 이유는?"
           description="자료: 근무와 사회 문화의 관계"
@@ -60,7 +60,7 @@ export default function MainContent() {
           showSmallIcon
         />
         <ContentCard
-          imageSrc="/example-chart.png"
+          imageSrc="thumnail.jpg"
           date="뉴스클립 | 2025.05.30"
           title="우리나라 재택 근무 입수가 세계 꼴찌인 이유는?"
           description="자료: 근무와 사회 문화의 관계"
@@ -71,7 +71,7 @@ export default function MainContent() {
           showSmallIcon
         />
         <ContentCard
-          imageSrc="/example-chart.png"
+          imageSrc="thumnail.jpg"
           date="뉴스클립 | 2025.05.30"
           title="우리나라 재택 근무 입수가 세계 꼴찌인 이유는?"
           description="자료: 근무와 사회 문화의 관계"
@@ -82,7 +82,7 @@ export default function MainContent() {
           showSmallIcon
         />
         <ContentCard
-          imageSrc="/example-chart.png"
+          imageSrc="thumnail.jpg"
           date="뉴스클립 | 2025.05.30"
           title="우리나라 재택 근무 입수가 세계 꼴찌인 이유는?"
           description="자료: 근무와 사회 문화의 관계"
