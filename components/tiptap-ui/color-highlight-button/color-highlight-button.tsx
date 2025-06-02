@@ -30,7 +30,7 @@ export const HIGHLIGHT_COLORS = [
   {
     label: "Gray background",
     value: "var(--tt-color-highlight-gray)",
-    border: "var(--tt-color-highlight-gray-contrast)",
+    border: "var(--tt-color-highlight-neutral-contrast)",
   },
   {
     label: "Brown background",

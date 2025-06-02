@@ -24,7 +24,7 @@ export default function SelectInput({
         id={label}
         name={label}
         defaultValue={defaultValue}
-        className="block w-full px-4 py-2 text-sm font-medium border border-gray-200 dark:border-gray-700 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none"
+        className="block w-full px-4 py-2 text-sm font-medium border border-neutral-200 dark:border-neutral-700 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none"
       >
         {options.map((option) => (
           <option key={option} value={option}>
@@ -32,7 +32,7 @@ export default function SelectInput({
           </option>
         ))}
       </select>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-neutral-700 dark:text-neutral-300">
         <svg
           className="fill-current h-4 w-4"
           xmlns="http://www.w3.org/2000/svg"

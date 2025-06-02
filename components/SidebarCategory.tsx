@@ -6,7 +6,7 @@ interface SidebarCategoryProps {
 
 export default function SidebarCategory({ title }: SidebarCategoryProps) {
   return (
-    <div className="mt-4 mb-1 text-xs text-gray-500 font-semibold px-3">
+    <div className="mt-4 mb-1 text-xs text-neutral-500 font-semibold px-3">
       {title}
     </div>
   );

@@ -73,7 +73,7 @@ const sidebarMenu: SidebarMenuItem[] = [
 export default function ExpandableSidebar({ isExpanded }: ExpandableSidebarProps) {
   return (
     <aside
-      className={`h-screen flex flex-col border-r border-gray-200 dark:border-gray-800 transition-all duration-300 bg-gray-50 dark:bg-gray-900 overflow-hidden
+      className={`h-screen flex flex-col border-r border-neutral-200 dark:border-neutral-800 transition-all duration-300 bg-neutral-50 dark:bg-neutral-900 overflow-hidden
         ${isExpanded ? "w-60 p-4" : "w-0 p-0"}
       `}
     >

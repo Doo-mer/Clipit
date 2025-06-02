@@ -25,7 +25,7 @@ export default function SidebarContainer({ isExpanded, setIsExpanded }: SidebarC
       {/* Toggle button is now inside the container, positioned relative to it */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className={`absolute top-8 p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition z-50
+        className={`absolute top-8 p-2 rounded-full bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 transition z-50
           right-[-1.25rem]
         `}
       >

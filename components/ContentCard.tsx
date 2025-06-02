@@ -25,31 +25,31 @@ export default function ContentCard({
   // isEmpty prop이 true일 경우, Paste 박스와 동일한 스타일로 렌더링
   if (isEmpty) {
     return (
-      <div className="border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center h-[298px] cursor-pointer transition">
-        <span className="text-gray-500">Paste any posts!</span>
+      <div className="border-2 border-dashed border-neutral-300 rounded-lg flex flex-col items-center justify-center h-[298px] cursor-pointer transition">
+        <span className="text-neutral-500">Paste any posts!</span>
       </div>
     );
   }
 
   // 일반 ContentCard (뉴스클립 등)
   return (
-    <div className="rounded-xl shadow-md flex flex-col hover:bg-gray-900 group">
+    <div className="rounded-xl shadow-md flex flex-col hover:bg-neutral-900 group">
       {imageSrc && (
         // 이미지 컨테이너: w-full, aspect-video (16:9) 추가
         <div className="relative w-full aspect-video rounded-xl">
           <img
             src={imageSrc}
             alt={imageAlt || "content image"}
-            className="absolute inset-0 w-full h-full object-cover group-hover:-translate-y-1 transition-transform duration-300 rounded-xl" 
+            className="absolute inset-0 w-full h-full object-cover group-hover:-translate-y-2 transition-transform duration-300 rounded-xl" 
           />
         </div>
       )}
 
       {/* 텍스트 내용 영역: p-4 패딩, flex-1 (남은 세로 공간 채움) 추가 */}
       <div className="p-4 flex flex-col flex-1">
-        {date && <div className="text-xs text-gray-400 mb-1">{date}</div>}
+        {date && <div className="text-xs text-neutral-400 mb-1">{date}</div>}
         {title && <div className="font-semibold text-base leading-tight mb-1 line-clamp-2">{title}</div>}
-        {description && <div className="text-xs text-gray-500 mb-3 line-clamp-2">{description}</div>} {/* mb-3 추가로 태그와 간격 */}
+        {description && <div className="text-xs text-neutral-500 mb-3 line-clamp-2">{description}</div>} {/* mb-3 추가로 태그와 간격 */}
 
         {/* 태그 영역: mt-auto (아래로 밀어냄) 제거 또는 flex-col의 끝에 붙도록 재배치 필요
             flex-col flex-1 안에 있으면 mt-auto는 효과 없음.

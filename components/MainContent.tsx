@@ -20,9 +20,9 @@ export default function MainContent() {
       {/* 콘텐츠 영역 */}
       <div className="grid grid-cols-[repeat(auto-fit,minmax(292px,1fr))] gap-x-8 gap-y-8 px-8">
         {/* Paste 박스 */}
-        <div className="border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center h-[298px] cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition">
-          <PlusSquare size={48} className="text-gray-400 mb-2" />
-          <span className="text-gray-500">Paste any posts!</span>
+        <div className="border-2 border-dashed border-neutral-300 rounded-lg flex flex-col items-center justify-center h-[298px] cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-800 transition">
+          <PlusSquare size={48} className="text-neutral-400 mb-2" />
+          <span className="text-neutral-500">Paste any posts!</span>
         </div>
         {/* 예시 카드 */}
         <ContentCard

@@ -54,7 +54,7 @@ export default function Home() {
   }, [router]);
 
   return (
-    <div className="flex min-h-screen bg-white dark:bg-gray-950">
+    <div className="flex min-h-screen bg-white dark:bg-neutral-950">
       <SidebarContainer isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
       <div className="flex-1 transition-all duration-300" style={{ marginLeft: `${mainContentLeftMargin}px` }}>
         <MainContent />

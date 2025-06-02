@@ -59,7 +59,7 @@ export default function NewPostPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-white dark:bg-gray-950">
+    <div className="flex min-h-screen bg-white dark:bg-neutral-950">
       {/* Sidebar Container */}
       <SidebarContainer isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
 
@@ -78,16 +78,16 @@ export default function NewPostPage() {
 
           {/* 제목, 날짜, 부제목 */}
           <div className="mb-6">
-            {hardcodedData.date && <div className="text-sm text-gray-500 mb-1">{hardcodedData.date}</div>}
+            {hardcodedData.date && <div className="text-sm text-neutral-500 mb-1">{hardcodedData.date}</div>}
             {hardcodedData.title && <h1 className="text-2xl font-bold mb-2">{hardcodedData.title}</h1>}
-            {hardcodedData.description && <p className="text-gray-600 text-base">{hardcodedData.description}</p>}
+            {hardcodedData.description && <p className="text-neutral-600 text-base">{hardcodedData.description}</p>}
           </div>
 
           {/* AI 요약 글 */}
           <div>
             <h2 className="text-lg font-semibold mb-3">AI 요약</h2>
             {/* 툴바 */}
-            <div className="flex items-center gap-3 border-b border-gray-500 p-2 max-sm:gap-1 max-sm:overflow-x-auto">
+            <div className="flex items-center gap-3 border-b border-neutral-500 p-2 max-sm:gap-1 max-sm:overflow-x-auto">
               <div className="flex items-center gap-4 transition-all max-sm:gap-1">
                 <button
                   type="button"
@@ -113,7 +113,7 @@ export default function NewPostPage() {
                 >
                   <Heading3 className="h-5 w-5 cursor-pointer" />
                 </button>
-                <div className="h-5 w-[1px] bg-gray-400" />
+                <div className="h-5 w-[1px] bg-neutral-400" />
               </div>
               <div className="flex items-center gap-4 transition-all max-sm:gap-1">
                 <button
@@ -140,7 +140,7 @@ export default function NewPostPage() {
                 >
                   <UnderlineIcon className="h-5 w-5 cursor-pointer" />
                 </button>
-                <div className="h-5 w-[1px] bg-gray-400" />
+                <div className="h-5 w-[1px] bg-neutral-400" />
               </div>
               <div className="flex items-center gap-4 transition-all max-sm:gap-1">
                 <button
@@ -159,7 +159,7 @@ export default function NewPostPage() {
                 >
                   <ListOrdered className="h-5 w-5 cursor-pointer" />
                 </button>
-                <div className="h-5 w-[1px] bg-gray-400" />
+                <div className="h-5 w-[1px] bg-neutral-400" />
               </div>
               <div className="flex gap-4 transition-all max-sm:gap-1">
                 {/* TiptabImage 및 TiptabLink 컴포넌트는 별도 구현 필요 */}
@@ -168,7 +168,7 @@ export default function NewPostPage() {
               </div>
             </div>
             {/* Tiptap 에디터 콘텐츠 */}
-            <div className="w-full p-3 bg-gray-50 dark:bg-gray-800 rounded-md text-gray-700 dark:text-gray-300 leading-relaxed focus-within:ring-2 focus-within:ring-blue-500">
+            <div className="w-full p-3 bg-neutral-50 dark:bg-neutral-800 rounded-md text-neutral-700 dark:text-neutral-300 leading-relaxed focus-within:ring-2 focus-within:ring-blue-500">
               <EditorContent editor={editor} />
             </div>
           </div>

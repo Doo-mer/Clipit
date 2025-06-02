@@ -12,9 +12,9 @@ function ThinSidebarLink({ href, icon, label }: ThinSidebarLinkProps) {
   const IconComponent = Icons[icon];
 
   return (
-    <Link href={href} className="flex flex-col items-center justify-center p-3 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition group">
+    <Link href={href} className="flex flex-col items-center justify-center p-3 rounded hover:bg-neutral-200 dark:hover:bg-neutral-800 transition group">
       {IconComponent && <IconComponent size={20} className="mb-1" />}
-      <span className="text-xs group-hover:text-gray-900 dark:group-hover:text-white">{label}</span>
+      <span className="text-xs group-hover:text-neutral-900 dark:group-hover:text-white">{label}</span>
     </Link>
   );
 }
@@ -30,7 +30,7 @@ const bottomLinks = [
 
 export default function ThinSidebar() {
   return (
-    <aside className="bg-gray-100 dark:bg-gray-900 h-screen w-20 flex flex-col items-center p-4 border-r border-gray-200 dark:border-gray-800 z-20">
+    <aside className="bg-neutral-100 dark:bg-neutral-900 h-screen w-20 flex flex-col items-center p-4 border-r border-neutral-200 dark:border-neutral-800 z-20">
       <div className="mb-8 mt-2">
         {/* Placeholder for Clipit logo/icon */}
         <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-lg">C</div>
