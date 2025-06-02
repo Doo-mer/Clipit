@@ -32,7 +32,7 @@ export default function MainContent() {
           description="자료: 근무와 사회 문화의 관계"
           tags={[
             { text: "조직", color: "text-blue-500" },
-            { text: "문화·HR", color: "text-gray-400" },
+            { text: "문화·HR", color: "text-blue-500" },
           ]}
           showSmallIcon
         />
@@ -44,7 +44,7 @@ export default function MainContent() {
           description="자료: 근무와 사회 문화의 관계"
           tags={[
             { text: "조직", color: "text-blue-500" },
-            { text: "문화·HR", color: "text-gray-400" },
+            { text: "문화·HR", color: "text-blue-500" },
           ]}
           showSmallIcon
         />
@@ -55,7 +55,7 @@ export default function MainContent() {
           description="자료: 근무와 사회 문화의 관계"
           tags={[
             { text: "조직", color: "text-blue-500" },
-            { text: "문화·HR", color: "text-gray-400" },
+            { text: "문화·HR", color: "text-blue-500" },
           ]}
           showSmallIcon
         />
@@ -66,7 +66,7 @@ export default function MainContent() {
           description="자료: 근무와 사회 문화의 관계"
           tags={[
             { text: "조직", color: "text-blue-500" },
-            { text: "문화·HR", color: "text-gray-400" },
+            { text: "문화·HR", color: "text-blue-500" },
           ]}
           showSmallIcon
         />
@@ -77,7 +77,7 @@ export default function MainContent() {
           description="자료: 근무와 사회 문화의 관계"
           tags={[
             { text: "조직", color: "text-blue-500" },
-            { text: "문화·HR", color: "text-gray-400" },
+            { text: "문화·HR", color: "text-blue-500" },
           ]}
           showSmallIcon
         />
@@ -88,7 +88,7 @@ export default function MainContent() {
           description="자료: 근무와 사회 문화의 관계"
           tags={[
             { text: "조직", color: "text-blue-500" },
-            { text: "문화·HR", color: "text-gray-400" },
+            { text: "문화·HR", color: "text-blue-500" },
           ]}
           showSmallIcon
         />

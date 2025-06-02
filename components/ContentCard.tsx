@@ -25,16 +25,7 @@ export default function ContentCard({
   // isEmpty prop이 true일 경우, Paste 박스와 동일한 스타일로 렌더링
   if (isEmpty) {
     return (
-      // MainContent.js의 Paste 박스 로직을 여기에 통합
-      <div className="border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center h-[298px] cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition">
-        {/* PlusSquare 아이콘은 MainContent에서 직접 전달하거나, 여기에 import해서 사용 */}
-        {/* 여기서는 PlusSquare 아이콘을 ContentCard가 직접 렌더링하는 대신,
-            MainContent에서 ContentCard에 isEmpty=true를 주고 PlusSquare를 별도로 렌더링하는 것을 권장.
-            아니면 ContentCard 내부에서 PlusSquare를 import 해야 함.
-            일단 MainContent에서 PlusSquare를 유지하는 것으로 가정하고 여기서는 제거.
-            만약 PlusSquare를 ContentCard 내부에서 처리하려면, lucide-react import 필요
-        */}
-        {/* <PlusSquare size={48} className="text-gray-400 mb-2" /> */}
+      <div className="border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center h-[298px] cursor-pointer transition">
         <span className="text-gray-500">Paste any posts!</span>
       </div>
     );
@@ -42,14 +33,14 @@ export default function ContentCard({
 
   // 일반 ContentCard (뉴스클립 등)
   return (
-    <div className="rounded-lg shadow-md overflow-hidden bg-white dark:bg-gray-900 flex flex-col">
+    <div className="rounded-xl shadow-md flex flex-col hover:bg-gray-900 group">
       {imageSrc && (
-        // 이미지 컨테이너: w-full, aspect-video (16:9), overflow-hidden 추가
-        <div className="relative w-full aspect-video overflow-hidden">
+        // 이미지 컨테이너: w-full, aspect-video (16:9) 추가
+        <div className="relative w-full aspect-video rounded-xl">
           <img
             src={imageSrc}
             alt={imageAlt || "content image"}
-            className="absolute inset-0 w-full h-full object-cover" // 이미지가 컨테이너를 꽉 채우도록
+            className="absolute inset-0 w-full h-full object-cover group-hover:-translate-y-1 transition-transform duration-300 rounded-xl" 
           />
         </div>
       )}
