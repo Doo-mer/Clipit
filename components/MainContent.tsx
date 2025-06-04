@@ -4,19 +4,9 @@ import ContentCard from "./ContentCard";
 import SelectInput from "./SelectInput";
 
 export default function MainContent() {
-  const subjectOptions = ["언어", "개발", "인문학", "기타"];
-  const platformOptions = ["유튜브", "velog", "eo", "branch", "기타"];
-  const tagOptions = ["커스텀태그1", "커스텀태그2", "커스텀태그3"]; // Example custom tags
 
   return (
     <main className="flex-1 flex flex-col py-8 gap-8 justify-between">
-      {/* 탭 영역 */}
-      <div className="flex gap-4 mb-4 px-8">
-        <SelectInput options={subjectOptions} defaultValue="주제" className="w-32" />
-        <SelectInput options={platformOptions} defaultValue="플랫폼" className="w-32" />
-        <SelectInput options={tagOptions} defaultValue="태그" className="w-32" />
-        <TabButton className="ml-auto">정렬</TabButton>
-      </div>
       {/* 콘텐츠 영역 */}
       <div className="grid grid-cols-[repeat(auto-fit,minmax(292px,1fr))] gap-x-8 gap-y-8 px-8">
         {/* Paste 박스 */}
