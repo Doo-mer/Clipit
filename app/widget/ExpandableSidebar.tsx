@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SidebarLink from "./SidebarLink";
 // import SidebarCategory from "./SidebarCategory"; // Removed unused import
 import { Home, BookOpen, Star } from "lucide-react";
+import { useRouter } from 'next/navigation';
 
 interface SidebarCategoryItem {
   type: "category";
@@ -68,6 +69,7 @@ const sidebarMenu: (SidebarCategoryItem | { type: "link"; href: string; icon: st
 
 export default function ExpandableSidebar() {
   const [activeText, setActiveText] = useState("/"); // 기본 활성 경로 설정
+  const router = useRouter()
 
   return (
     <aside
@@ -75,7 +77,9 @@ export default function ExpandableSidebar() {
     >
       <div className={`flex flex-col flex-1 transition-opacity duration-300 opacity-100`}>
         {/* Content of the sidebar */}
-        <div className="flex items-center gap-2 mb-8">
+        <div className="flex items-center gap-2 mb-8 hover:cursor-pointer"
+          onClick={() => router.push('/')}
+        >
           <img src="/logo.svg" alt="Clipit Logo" className="w-7 h-7 filter invert-0 saturate-200 hue-rotate-[200deg] brightness-75" />
           <span className="text-xl font-bold tracking-tight">Clipit</span>
         </div>

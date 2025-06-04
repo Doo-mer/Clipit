@@ -1,6 +1,8 @@
 // src/components/YoutubePanel.tsx 또는 .jsx
-import React from 'react';
-import { Youtube, Send, Save } from 'lucide-react';
+import React, { useState } from 'react';
+import { Youtube, Send, Save, X, Check, Share2, Plus, Lock, Globe } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import PublishModal from './PublishModal';
 
 interface YoutubePanelProps {
   youtubeUrl: string;
@@ -13,6 +15,9 @@ const YoutubePanel: React.FC<YoutubePanelProps> = ({
   youtubeTitle,
   youtubeSummary,
 }) => {
+  const router = useRouter();
+  const [isPublishModalOpen, setIsPublishModalOpen] = useState(false);
+
   // YouTube URL에서 비디오 ID 추출 함수 (간단한 예시)
   const getEmbedUrl = (url: string) => {
     const videoIdMatch = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
@@ -53,15 +58,25 @@ const YoutubePanel: React.FC<YoutubePanelProps> = ({
       </div>
 
       <div className="flex justify-between items-center mt-auto border-t border-neutral-700 pt-4 gap-2">
-        <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2 text-neutral-400 hover:text-white transition-colors border border-neutral-700 rounded-lg">
+        <button 
+          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 text-neutral-400 hover:text-white transition-colors border border-neutral-700 rounded-lg"
+        >
           <Save size={18} />
           <span>저장</span>
         </button>
-        <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors rounded-lg">
+        <button 
+          onClick={() => setIsPublishModalOpen(true)}
+          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors rounded-lg"
+        >
           <Send size={18} />
           <span>퍼블리시</span>
         </button>
       </div>
+
+      <PublishModal 
+        isOpen={isPublishModalOpen} 
+        onClose={() => setIsPublishModalOpen(false)} 
+      />
     </div>
   );
 };

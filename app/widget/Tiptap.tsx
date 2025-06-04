@@ -122,7 +122,7 @@ export default () => {
                         {tags.map((tag, index) => (
                             <span
                                 key={index}
-                                className="flex items-center text-blue-400 text-[1rem] px-3 py-1 rounded-full"
+                                className="flex items-center text-blue-400 text-[1rem] px-3 py-1 rounded-full bg-neutral-800"
                                 onClick={() => removeTag(index)}
                             >
                                 {tag}
