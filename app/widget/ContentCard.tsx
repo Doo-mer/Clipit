@@ -1,5 +1,6 @@
 import React from "react";
 import Tag from "./Tag"; // Tag 컴포넌트가 있다고 가정
+import { useRouter } from 'next/navigation';
 
 interface ContentCardProps {
   imageSrc?: string;
@@ -31,9 +32,13 @@ export default function ContentCard({
     );
   }
 
+  const router = useRouter()
+
   // 일반 ContentCard (뉴스클립 등)
   return (
-    <div className="rounded-xl shadow-md flex flex-col hover:bg-neutral-900 group">
+    <div className="rounded-xl shadow-md flex flex-col hover:bg-neutral-900 group"
+      onClick={()=>{router.push("view")}}
+    >
       {imageSrc && (
         // 이미지 컨테이너: w-full, aspect-video (16:9) 추가
         <div className="relative w-full aspect-video rounded-xl">

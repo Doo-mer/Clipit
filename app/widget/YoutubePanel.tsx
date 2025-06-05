@@ -28,13 +28,9 @@ const YoutubePanel: React.FC<YoutubePanelProps> = ({
   const embedUrl = getEmbedUrl(youtubeUrl);
 
   return (
-    <div className="fixed right-0 top-0 h-full w-[350px] bg-neutral-900 p-6 flex flex-col">
-      <h2 className="text-xl font-bold mb-4 text-white flex items-center">
-        <Youtube size={24} className="mr-2 text-red-500" /> YouTube 콘텐츠
-      </h2>
-
+    <div className="fixed right-0 top-0 h-full w-[350px] p-6 flex flex-col">
       {embedUrl ? (
-        <div className="aspect-video w-full mb-4 rounded-lg overflow-hidden">
+        <div className="aspect-video w-full my-12 rounded-lg overflow-hidden">
           <iframe
             className="w-full h-full"
             src={embedUrl}

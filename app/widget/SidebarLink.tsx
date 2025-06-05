@@ -34,8 +34,8 @@ export default function SidebarLink({ href, icon, children, activeText, setActiv
     >
       {IconComponent && <IconComponent size={24} fill={isActive ? "currentColor" : "none"} strokeWidth={1.5} />}
       {iconPath && (
-        <div className={`w-[24px] h-[24px] flex items-center justify-center ${isActive ? "" : "bg-white rounded-sm p-1"}`}>
-          <img src={iconPath} alt="icon" className={`max-w-full max-h-full ${isActive ? "filter brightness-0 invert" : ""}`} />
+        <div className={`w-[24px] h-[24px] flex items-center justify-center ${false ? "filter brightness-0 invert" : ""}`}>
+          <img src={iconPath} alt="icon" className={`max-w-full max-h-full ${false ? "filter brightness-0 invert" : ""}`} />
         </div>
       )}
       {children}

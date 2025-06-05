@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Search, Bell, Settings, Save, Send, Trash2, FileDown, Star, Share2, Copy } from 'lucide-react';
+import React from 'react';
+import { Search, Bell, Settings, Trash2, FileDown, Star, Share2, Copy } from 'lucide-react';
 
 interface HeaderProps {
   variant?: 'main' | 'newpost';
@@ -7,14 +7,10 @@ interface HeaderProps {
 
 
 export default function Header({ variant = 'main' }: HeaderProps) {
-  const [copied, setCopied] = useState(false);
-
   return (
-    <header className="fixed top-0 right-0 left-60 h-16 bg-neutral-900 z-50">
+    <header className="fixed top-0 right-0 left-60 h-16 z-50 bg-neutral-950">
       <div className="h-full px-6 flex items-center justify-between">
         <div></div>
-        
-        {/* 검색 영역 (메인 헤더에만 표시) */}
         {variant === 'main' && (
           <div className="flex-1 max-w-xl">
             <div className="relative">
