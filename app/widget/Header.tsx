@@ -22,16 +22,6 @@ export default function Header({ variant = 'main' }: HeaderProps) {
               className="h-8 w-auto"
             />
           </Link>
-          {variant === 'main' && (
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="검색어를 입력하세요"
-                className="w-[300px] h-9 pl-10 pr-4 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 bg-neutral-800"
-              />
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-            </div>
-          )}
         </div>
 
         {/* 우측: 아이콘들 */}

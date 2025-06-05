@@ -1,10 +1,15 @@
+"use client";
+
+import { useState } from "react";
 import { PlusSquare } from "lucide-react";
 import TabButton from "./TabButton";
 import ContentCard from "./ContentCard";
 import SelectInput from "./SelectInput";
 import Sidebar from "./Sidebar";
+import LinkInputModal from "./LinkInputModal";
 
 export default function MainContent() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <main className="flex-1 flex flex-row justify-center">
@@ -14,9 +19,12 @@ export default function MainContent() {
           {/* 콘텐츠 영역 */}
           <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-x-6 gap-y-6 px-8">
             {/* Paste 박스 */}
-            <div className="border-2 border-dashed border-neutral-300 rounded-lg flex flex-col items-center justify-center h-[298px] cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-800 transition">
+            <div 
+              className="border-2 border-dashed border-neutral-700 rounded-xl flex flex-col items-center justify-center h-[298px] cursor-pointer hover:bg-neutral-800/50 transition"
+              onClick={() => setIsModalOpen(true)}
+            >
               <PlusSquare size={48} className="text-neutral-400 mb-2" />
-              <span className="text-neutral-500">Paste any posts!</span>
+              <span className="text-neutral-400">Paste any posts!</span>
             </div>
             {/* 예시 카드 */}
             <ContentCard
@@ -89,6 +97,11 @@ export default function MainContent() {
           </div>
         </main>
       </div>
+
+      <LinkInputModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </main>
   );
 } 

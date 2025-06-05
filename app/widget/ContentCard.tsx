@@ -29,7 +29,7 @@ export default function ContentCard({
   // isEmpty prop이 true일 경우, Paste 박스와 동일한 스타일로 렌더링
   if (isEmpty) {
     return (
-      <div className="border-2 border-dashed border-neutral-300 rounded-lg flex flex-col items-center justify-center h-[298px] cursor-pointer transition">
+      <div className="border-2 border-dashed border-neutral-300 rounded-2xl flex flex-col items-center justify-center h-[298px] cursor-pointer transition">
         <span className="text-neutral-500">Paste any posts!</span>
       </div>
     );

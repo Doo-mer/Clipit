@@ -132,7 +132,7 @@ export default function NewPostPage() { // 컴포넌트 이름 변경
                             ))}
                             <input
                                 type="text"
-                                placeholder="태그를 입력하세요 (엔터로 구분)"
+                                placeholder="태그를 입력하세요"
                                 className="w-62 bg-transparent outline-none placeholder-neutral-600 text-neutral-300 text-[1.125rem]"
                                 value={tagInput}
                                 onChange={(e) => setTagInput(e.target.value)}
