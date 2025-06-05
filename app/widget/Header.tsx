@@ -25,16 +25,16 @@ export default function Header({ variant = 'main' }: HeaderProps) {
         )}
 
         {/* 우측 메뉴 */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-3">
           {variant === 'main' ? (
             <>
               <button className="p-2 text-neutral-400 hover:text-white transition-colors">
-                <Bell size={22} />
+                <Bell size={24} />
               </button>
               <button className="p-2 text-neutral-400 hover:text-white transition-colors">
-                <Settings size={22} />
+                <Settings size={24} />
               </button>
-              <div className="h-8 w-8 rounded-full bg-neutral-800 flex items-center justify-center">
+              <div className="h-9 w-9 rounded-full bg-neutral-600 flex items-center justify-center ml-1">
                 <span className="text-sm font-medium text-white">U</span>
               </div>
             </>

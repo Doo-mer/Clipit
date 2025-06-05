@@ -36,7 +36,7 @@ export default function ContentCard({
 
   // 일반 ContentCard (뉴스클립 등)
   return (
-    <div className="rounded-xl shadow-md flex flex-col hover:bg-neutral-900 group"
+    <div className="rounded-xl shadow-md flex flex-col hover:bg-neutral-900 group mb-4"
       onClick={()=>{router.push("view")}}
     >
       {imageSrc && (
@@ -51,10 +51,10 @@ export default function ContentCard({
       )}
 
       {/* 텍스트 내용 영역: p-4 패딩, flex-1 (남은 세로 공간 채움) 추가 */}
-      <div className="p-4 flex flex-col flex-1">
-        {date && <div className="text-xs text-neutral-400 mb-1">{date}</div>}
-        {title && <div className="font-semibold text-base leading-tight mb-1 line-clamp-2">{title}</div>}
-        {description && <div className="text-xs text-neutral-500 mb-3 line-clamp-2">{description}</div>} {/* mb-3 추가로 태그와 간격 */}
+      <div className="flex flex-col flex-1 py-3">
+        {date && <div className="text-sm text-neutral-400 mb-3 font-semibold">{date}</div>}
+        {title && <div className="font-semibold text-base leading-tight mb-2 line-clamp-2">{title}</div>}
+        {description && <div className="text-sm text-neutral-500 mb-3 line-clamp-2">{description}</div>} {/* mb-3 추가로 태그와 간격 */}
 
         {/* 태그 영역: mt-auto (아래로 밀어냄) 제거 또는 flex-col의 끝에 붙도록 재배치 필요
             flex-col flex-1 안에 있으면 mt-auto는 효과 없음.
