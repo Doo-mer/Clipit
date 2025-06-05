@@ -7,7 +7,7 @@ interface TagProps {
 
 export default function Tag({ text, color }: TagProps) {
   return (
-    <span className={`${color}`}>
+    <span className={`${color} text-sm`}>
       {text}
     </span>
   );

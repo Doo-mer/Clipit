@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { X, Check, Share2, Plus, Globe } from 'lucide-react';
 import { useRouter } from 'next/navigation';

@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Tag from "./Tag"; // Tag 컴포넌트가 있다고 가정
 import { useRouter } from 'next/navigation';
+import Image from "next/image";
 
 interface ContentCardProps {
   imageSrc?: string;
@@ -40,8 +43,8 @@ export default function ContentCard({
       onClick={()=>{router.push("view")}}
     >
       {imageSrc && (
-        // 이미지 컨테이너: w-full, aspect-video (16:9) 추가
-        <div className="relative w-full aspect-video rounded-xl">
+        // 이미지 컨테이너: w-full, aspect-[4/3] 추가
+        <div className="relative w-full aspect-[8/5] rounded-xl">
           <img
             src={imageSrc}
             alt={imageAlt || "content image"}
@@ -53,7 +56,7 @@ export default function ContentCard({
       {/* 텍스트 내용 영역: p-4 패딩, flex-1 (남은 세로 공간 채움) 추가 */}
       <div className="flex flex-col flex-1 py-3">
         {date && <div className="text-sm text-neutral-400 mb-3 font-semibold">{date}</div>}
-        {title && <div className="font-semibold text-base leading-tight mb-2 line-clamp-2">{title}</div>}
+        {title && <div className="font-semibold text-lg leading-tight mb-2 line-clamp-2">{title}</div>}
         {description && <div className="text-sm text-neutral-500 mb-3 line-clamp-2">{description}</div>} {/* mb-3 추가로 태그와 간격 */}
 
         {/* 태그 영역: mt-auto (아래로 밀어냄) 제거 또는 flex-col의 끝에 붙도록 재배치 필요

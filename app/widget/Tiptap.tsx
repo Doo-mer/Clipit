@@ -105,22 +105,6 @@ export default function NewPostPage() { // 컴포넌트 이름 변경
 
     return (
         <div className="flex flex-col h-screen bg-neutral-900 text-white">
-            {/* Header */}
-            <header className="flex items-center p-4 border-b border-neutral-800">
-                {/* Logo */}
-                <div className="flex items-center gap-2 mr-6">
-                    <img src="/logo.svg" alt="Clipit Logo" className="w-8 h-8 filter invert-0 saturate-200 hue-rotate-[200deg] brightness-75" />
-                    <span className="text-xl font-bold tracking-tight">Clipit</span>
-                </div>
-                {/* Search */}
-                <div className="flex-1">
-                    <input
-                        type="text"
-                        placeholder="검색..."
-                        className="w-full p-2 rounded-md bg-neutral-800 outline-none placeholder-neutral-500 text-white"
-                    />
-                </div>
-            </header>
 
             {/* Main Content Area */}
             <div className="flex flex-1 overflow-hidden">
@@ -165,20 +149,14 @@ export default function NewPostPage() { // 컴포넌트 이름 변경
                 </div>
 
                 {/* Categories and other Widgets Area */}
-                <div className="w-[350px] p-8 border-l border-neutral-800 overflow-y-auto flex flex-col">
+                <div className="w-[350px]  border-neutral-800 overflow-y-auto flex flex-col">
                     {/* Categories Section (Placeholder)*/}
-                    <div className="mb-8">
-                        <h3 className="text-xl font-semibold mb-4 text-white">카테고리</h3>
-                        {/* Category list or component will go here */}
-                        <div className="text-neutral-400">
-                          카테고리 목록...
-                        </div>
-                    </div>
                     {/* YouTube Panel */}
                      <YoutubePanel
                         youtubeUrl={youtubeVideoUrl}
                         youtubeTitle={youtubeVideoTitle}
                         youtubeSummary={youtubeVideoSummary}
+                        isViewer={true}
                     />
                 </div>
             </div>

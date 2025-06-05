@@ -22,11 +22,11 @@ export default function MainContent() {
             <ContentCard
               imageSrc="thumnail.jpg"
               date="뉴스클립 | 2025.05.30"
-              title="우리나라 재택 근무 입수가 세계 꼴찌인 이유"
+              title="우리나라 재택 근무 입수가 세계 꼴찌"
               description="자료: 근무와 사회 문화의 관계"
               tags={[
-                { text: "조직", color: "text-blue-500" },
-                { text: "문화·HR", color: "text-blue-500" },
+                { text: "조직", color: "text-blue-400" },
+                { text: "문화·HR", color: "text-blue-400" },
               ]}
               showSmallIcon
             />
@@ -34,55 +34,55 @@ export default function MainContent() {
             <ContentCard
               imageSrc="thumnail.jpg"
               date="뉴스클립 | 2025.05.30"
-              title="우리나라 재택 근무 입수가 세계 꼴찌인 이유"
+              title="우리나라 재택 근무 입수가 세계 꼴찌"
               description="자료: 근무와 사회 문화의 관계"
               tags={[
-                { text: "조직", color: "text-blue-500" },
-                { text: "문화·HR", color: "text-blue-500" },
+                { text: "조직", color: "text-blue-400" },
+                { text: "문화·HR", color: "text-blue-400" },
               ]}
               showSmallIcon
             />
             <ContentCard
               imageSrc="thumnail.jpg"
               date="뉴스클립 | 2025.05.30"
-              title="우리나라 재택 근무 입수가 세계 꼴찌인 이유"
+              title="우리나라 재택 근무 입수가 세계 꼴찌"
               description="자료: 근무와 사회 문화의 관계"
               tags={[
-                { text: "조직", color: "text-blue-500" },
-                { text: "문화·HR", color: "text-blue-500" },
+                { text: "조직", color: "text-blue-400" },
+                { text: "문화·HR", color: "text-blue-400" },
               ]}
               showSmallIcon
             />
             <ContentCard
               imageSrc="thumnail.jpg"
               date="뉴스클립 | 2025.05.30"
-              title="우리나라 재택 근무 입수가 세계 꼴찌인 이유"
+              title="우리나라 재택 근무 입수가 세계 꼴찌"
               description="자료: 근무와 사회 문화의 관계"
               tags={[
-                { text: "조직", color: "text-blue-500" },
-                { text: "문화·HR", color: "text-blue-500" },
+                { text: "조직", color: "text-blue-400" },
+                { text: "문화·HR", color: "text-blue-400" },
               ]}
               showSmallIcon
             />
             <ContentCard
               imageSrc="thumnail.jpg"
               date="뉴스클립 | 2025.05.30"
-              title="우리나라 재택 근무 입수가 세계 꼴찌인 이유"
+              title="우리나라 재택 근무 입수가 세계 꼴찌"
               description="자료: 근무와 사회 문화의 관계"
               tags={[
-                { text: "조직", color: "text-blue-500" },
-                { text: "문화·HR", color: "text-blue-500" },
+                { text: "조직", color: "text-blue-400" },
+                { text: "문화·HR", color: "text-blue-400" },
               ]}
               showSmallIcon
             />
             <ContentCard
               imageSrc="thumnail.jpg"
               date="뉴스클립 | 2025.05.30"
-              title="우리나라 재택 근무 입수가 세계 꼴찌인 이유"
+              title="우리나라 재택 근무 입수가 세계 꼴찌"
               description="자료: 근무와 사회 문화의 관계"
               tags={[
-                { text: "조직", color: "text-blue-500" },
-                { text: "문화·HR", color: "text-blue-500" },
+                { text: "조직", color: "text-blue-400" },
+                { text: "문화·HR", color: "text-blue-400" },
               ]}
               showSmallIcon
             />
