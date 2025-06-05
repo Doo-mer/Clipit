@@ -4,10 +4,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import MainContent from "../widget/MainContent";
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
 
 export default function Home() {
   const router = useRouter();
-
+  const [clipboardContent, setClipboardContent] = useState<string>("");
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -16,11 +17,22 @@ export default function Home() {
       }
     };
 
-    const handlePaste = (event: ClipboardEvent) => {
+    const handlePaste = async (event: ClipboardEvent) => {
       const pastedText = event.clipboardData?.getData('text');
       if (pastedText) {
-        console.log("붙여넣기 내용:", pastedText);
-        router.push('/new-post');
+        try {
+          const response = await axios.post('http://localhost:8000/chat/', {
+            prompt: pastedText
+          });
+          
+          // 응답 데이터를 상태에 저장
+          setClipboardContent(response.data);
+          
+          // new-post 페이지로 이동하면서 데이터 전달
+          router.push(`/new-post?content=${encodeURIComponent(response.data.reply)}`);
+        } catch (error) {
+          console.error('API 요청 실패:', error);
+        }
       }
     };
 

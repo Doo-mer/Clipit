@@ -1,8 +1,12 @@
 import Highlight from '@tiptap/extension-highlight'
 import TextAlign from '@tiptap/extension-text-align'
+import Typography from '@tiptap/extension-typography' // Typography 추가 (첫 번째 코드에 있었음)
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react' // useRef 추가
+import { marked } from 'marked'; // marked 라이브러리 임포트
+import { useSearchParams } from 'next/navigation';
+
 import {
     Heading1,
     Heading2,
@@ -12,9 +16,12 @@ import {
     Italic,
     Strikethrough,
     Highlighter,
-} from 'lucide-react'; // 필요한 아이콘만 가져오기
+} from 'lucide-react';
 
-// MenuBar 컴포넌트는 기존과 동일하게 유지
+// YoutubePanel 컴포넌트 임포트 (경로에 맞게 수정)
+import YoutubePanel from './YoutubePanel';
+
+// MenuBar 컴포넌트 (기존 NewPostPage의 MenuBar와 동일)
 const MenuBar = ({ editor }: { editor: any }) => {
     if (!editor) {
         return null
@@ -54,15 +61,16 @@ const MenuBar = ({ editor }: { editor: any }) => {
     )
 }
 
-// 이 파일을 불러오기
-import YoutubePanel from './YoutubePanel'; // YoutubePanel 컴포넌트 경로에 맞게 수정
-
-export default function NewPostPage() { // 컴포넌트 이름 변경
+export default function NewPostPage() {
     const [title, setTitle] = useState('');
     const [tagInput, setTagInput] = useState('');
     const [tags, setTags] = useState<string[]>([]);
+    const searchParams = useSearchParams();
+    const contentParam = searchParams.get('content'); // URL 쿼리 파라미터에서 마크다운 content 가져오기 (이름 변경)
+    const [isTyping, setIsTyping] = useState(false);
+    const hasContentBeenSet = useRef(false); // 콘텐츠가 이미 설정되었는지 추적하기 위한 ref
 
-    // YouTube 패널에 전달할 상태 추가
+    // YouTube 패널에 전달할 상태
     const [youtubeVideoUrl, setYoutubeVideoUrl] = useState('https://www.youtube.com/watch?v=dQw4w9WgXcQ'); // 예시 URL
     const [youtubeVideoTitle, setYoutubeVideoTitle] = useState('Rick Astley - Never Gonna Give You Up (Official Music Video)');
     const [youtubeVideoSummary, setYoutubeVideoSummary] = useState(
@@ -91,26 +99,79 @@ export default function NewPostPage() { // 컴포넌트 이름 변경
     const editor = useEditor({
         extensions: [
             StarterKit,
-            TextAlign.configure({
-                types: ['heading', 'paragraph'],
-            }),
             Highlight,
+            Typography, // Typography 확장 추가 (첫 번째 코드에 있었음)
+            TextAlign.configure({ types: ['heading', 'paragraph'] }),
         ],
-        content: `
-      <h3>
-        제 이름은 김규민입니다.
-      </h3>
-    `,
-    })
+        // 초기 content는 비워두거나, 필요에 따라 기본 HTML을 설정합니다.
+        content: '',
+    });
+
+    // URL 쿼리 파라미터로 마크다운 content가 넘어왔을 때 에디터에 로드 또는 타이핑 애니메이션
+    useEffect(() => {
+        if (editor && contentParam && !hasContentBeenSet.current) {
+            try {
+                // 마크다운을 HTML로 변환
+                const htmlContent = marked.parse(contentParam);
+
+                // `isTyping` 상태에 따라 타이핑 애니메이션 또는 즉시 콘텐츠 설정
+                if (isTyping) {
+                    let currentIndex = 0;
+                    const text = contentParam;
+
+                    const typeNextChar = () => {
+                        if (currentIndex < text.length) {
+                            const currentChar = text[currentIndex];
+                            const nextChar = text[currentIndex + 1];
+
+                            // Simple markdown parsing for typing animation (not full HTML conversion)
+                            if (currentChar === '#' && nextChar === ' ') {
+                                editor.commands.insertContent('\n# ');
+                                currentIndex += 2;
+                            } else if (currentChar === '*' && nextChar === '*') {
+                                editor.commands.insertContent('**');
+                                currentIndex += 2;
+                            } else if (currentChar === '_' && nextChar === '_') {
+                                editor.commands.insertContent('__');
+                                currentIndex += 2;
+                            } else if (currentChar === '`' && nextChar === '`' && text[currentIndex + 2] === '`') {
+                                editor.commands.insertContent('```\n');
+                                currentIndex += 3;
+                            } else if (currentChar === '\n') {
+                                editor.commands.insertContent('\n');
+                                currentIndex++;
+                            } else {
+                                editor.commands.insertContent(currentChar);
+                                currentIndex++;
+                            }
+
+                            const randomDelay = 1; // Faster typing for better user experience
+                            setTimeout(typeNextChar, randomDelay);
+                        } else {
+                            setIsTyping(false);
+                            hasContentBeenSet.current = true; // 콘텐츠가 완전히 로드되었음을 표시
+                        }
+                    };
+                    typeNextChar();
+                } else {
+                    // isTyping이 false이면 즉시 HTML 콘텐츠 설정
+                    editor.commands.setContent(htmlContent);
+                    hasContentBeenSet.current = true; // 콘텐츠가 완전히 로드되었음을 표시
+                    console.log('마크다운 콘텐츠가 HTML로 변환되어 에디터에 즉시 로드되었습니다.');
+                }
+            } catch (error) {
+                console.error('마크다운 파싱 또는 Tiptap 로드 중 오류 발생:', error);
+            }
+        }
+    }, [editor, contentParam, isTyping]); // isTyping도 의존성 배열에 추가
 
     return (
         <div className="flex flex-col h-screen bg-neutral-900 text-white">
-
             {/* Main Content Area */}
             <div className="flex flex-1 overflow-hidden">
                 {/* Editor and Title/Tags Section */}
                 <div className="flex-1 flex flex-col p-8 overflow-y-auto">
-                     <input
+                    <input
                         type="text"
                         placeholder="제목을 입력하세요"
                         className="w-full text-4xl font-bold mb-4 bg-transparent outline-none placeholder-neutral-600 text-white"
@@ -149,10 +210,9 @@ export default function NewPostPage() { // 컴포넌트 이름 변경
                 </div>
 
                 {/* Categories and other Widgets Area */}
-                <div className="w-[350px]  border-neutral-800 overflow-y-auto flex flex-col">
-                    {/* Categories Section (Placeholder)*/}
+                <div className="w-[350px] border-neutral-800 overflow-y-auto flex flex-col">
                     {/* YouTube Panel */}
-                     <YoutubePanel
+                    <YoutubePanel
                         youtubeUrl={youtubeVideoUrl}
                         youtubeTitle={youtubeVideoTitle}
                         youtubeSummary={youtubeVideoSummary}
