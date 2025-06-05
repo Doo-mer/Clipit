@@ -14,11 +14,7 @@ export default function SidebarLink({ href, icon, children, activeText, setActiv
   const isActive = activeText === text;
 
   const handleClick = () => {
-    if (isActive) {
-      setActiveText("");
-    } else {
-      setActiveText(text);
-    }
+    setActiveText(text);
   };
 
   const IconComponent = typeof icon === 'string' ? null : icon;
@@ -28,14 +24,14 @@ export default function SidebarLink({ href, icon, children, activeText, setActiv
     <Link
       href={href}
       onClick={handleClick}
-      className={`flex items-center gap-6 px-2 py-2 rounded-lg transition whitespace-nowrap text-sm
-        ${isActive ? "bg-neutral-800 text-white" : "hover:bg-neutral-200 dark:hover:bg-neutral-800"}
+      className={`flex items-center gap-3 px-3 py-2 rounded-md transition whitespace-nowrap text-sm
+        ${isActive ? "bg-neutral-700 text-white" : "text-neutral-400 hover:bg-neutral-800"}
       `}
     >
-      {IconComponent && <IconComponent size={24} fill={isActive ? "currentColor" : "none"} strokeWidth={1.5} />}
+      {IconComponent && <IconComponent size={20} />}
       {iconPath && (
-        <div className={`w-[24px] h-[24px] flex items-center justify-center ${false ? "filter brightness-0 invert" : ""}`}>
-          <img src={iconPath} alt="icon" className={`max-w-full max-h-full ${false ? "filter brightness-0 invert" : ""}`} />
+        <div className="w-[20px] h-[20px] flex items-center justify-center">
+          <img src={iconPath} alt="icon" className="max-w-full max-h-full" />
         </div>
       )}
       {children}

@@ -68,12 +68,6 @@ export default function ContentCard({
           </div>
         )}
       </div>
-
-      {showSmallIcon && (
-        <div className="absolute bottom-4 right-4 w-8 h-8 bg-gradient-to-br from-blue-400 to-pink-500 rounded-full flex items-center justify-center shadow-md">
-          <div className="w-4 h-4 rounded-full bg-white opacity-20" />
-        </div>
-      )}
     </div>
   );
 }

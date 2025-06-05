@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import Header from "@/app/widget/Header";
-import SidebarContainer from "../widget/SidebarContainer";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -32,7 +31,6 @@ export default function RootLayout({
         className={`mt-20 ml-70`}
       >
         <Header variant="newpost"/>
-        <SidebarContainer/>
         {children}
       </body>
     </html>

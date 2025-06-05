@@ -8,7 +8,7 @@ interface HeaderProps {
 
 export default function Header({ variant = 'main' }: HeaderProps) {
   return (
-    <header className="fixed top-0 right-0 left-60 h-16 z-50 bg-neutral-950">
+    <header className="fixed top-0 right-0 left-0 h-16 z-50 bg-neutral-900">
       <div className="h-full px-6 flex items-center justify-between">
         <div></div>
         {variant === 'main' && (

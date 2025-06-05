@@ -57,7 +57,7 @@ const MenuBar = ({ editor }: { editor: any }) => {
 // 이 파일을 불러오기
 import YoutubePanel from './YoutubePanel'; // YoutubePanel 컴포넌트 경로에 맞게 수정
 
-export default () => {
+export default function NewPostPage() { // 컴포넌트 이름 변경
     const [title, setTitle] = useState('');
     const [tagInput, setTagInput] = useState('');
     const [tags, setTags] = useState<string[]>([]);
@@ -104,54 +104,84 @@ export default () => {
     })
 
     return (
-        // 전체 레이아웃을 flex 컨테이너로 설정
-        <div className="flex w-full h-screen ">
-            {/* 에디터 섹션 (너비를 조절하여 YouTube 패널 공간 확보) */}
-            <div className="flex-grow flex flex-col p-8 overflow-hidden" style={{ maxWidth: 'calc(100% - 350px)' }}> {/* YouTube 패널 너비만큼 빼기 */}
-                <input
-                    type="text"
-                    placeholder="제목을 입력하세요"
-                    className="w-full text-4xl font-bold mt-8 mb-4 bg-transparent outline-none placeholder-neutral-600 text-white"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
-                <div className="border-b border-neutral-700 mb-6"></div>
+        <div className="flex flex-col h-screen bg-neutral-900 text-white">
+            {/* Header */}
+            <header className="flex items-center p-4 border-b border-neutral-800">
+                {/* Logo */}
+                <div className="flex items-center gap-2 mr-6">
+                    <img src="/logo.svg" alt="Clipit Logo" className="w-8 h-8 filter invert-0 saturate-200 hue-rotate-[200deg] brightness-75" />
+                    <span className="text-xl font-bold tracking-tight">Clipit</span>
+                </div>
+                {/* Search */}
+                <div className="flex-1">
+                    <input
+                        type="text"
+                        placeholder="검색..."
+                        className="w-full p-2 rounded-md bg-neutral-800 outline-none placeholder-neutral-500 text-white"
+                    />
+                </div>
+            </header>
 
-                <div className="mb-6">
-                    <div className="flex flex-wrap gap-2">
-                        {tags.map((tag, index) => (
-                            <span
-                                key={index}
-                                className="flex items-center text-blue-400 text-[1rem] px-3 py-1 rounded-full bg-neutral-800"
-                                onClick={() => removeTag(index)}
-                            >
-                                {tag}
-                            </span>
-                        ))}
-                        <input
-                            type="text"
-                            placeholder="태그를 입력하세요 (엔터로 구분)"
-                            className="w-62 bg-transparent outline-none placeholder-neutral-600 text-neutral-300 text-[1.125rem]"
-                            value={tagInput}
-                            onChange={(e) => setTagInput(e.target.value)}
-                            onKeyDown={handleTagInputKeyDown}
-                        />
+            {/* Main Content Area */}
+            <div className="flex flex-1 overflow-hidden">
+                {/* Editor and Title/Tags Section */}
+                <div className="flex-1 flex flex-col p-8 overflow-y-auto">
+                     <input
+                        type="text"
+                        placeholder="제목을 입력하세요"
+                        className="w-full text-4xl font-bold mb-4 bg-transparent outline-none placeholder-neutral-600 text-white"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                    <div className="border-b border-neutral-700 mb-6"></div>
+
+                    <div className="mb-6">
+                        <div className="flex flex-wrap gap-2">
+                            {tags.map((tag, index) => (
+                                <span
+                                    key={index}
+                                    className="flex items-center text-blue-400 text-[1rem] px-3 py-1 rounded-full bg-neutral-800"
+                                    onClick={() => removeTag(index)}
+                                >
+                                    {tag}
+                                </span>
+                            ))}
+                            <input
+                                type="text"
+                                placeholder="태그를 입력하세요 (엔터로 구분)"
+                                className="w-62 bg-transparent outline-none placeholder-neutral-600 text-neutral-300 text-[1.125rem]"
+                                value={tagInput}
+                                onChange={(e) => setTagInput(e.target.value)}
+                                onKeyDown={handleTagInputKeyDown}
+                            />
+                        </div>
+                    </div>
+
+                    {/* MenuBar and EditorContent */}
+                    <div className="flex-grow overflow-y-auto custom-scrollbar pr-4">
+                        <MenuBar editor={editor} />
+                        <EditorContent editor={editor} />
                     </div>
                 </div>
 
-                {/* MenuBar와 EditorContent를 함께 스크롤 가능한 영역에 넣기 */}
-                <div className="flex-grow overflow-y-auto custom-scrollbar pr-4"> {/* flex-grow로 남은 공간 채우고 스크롤바 적용 */}
-                    <MenuBar editor={editor} />
-                    <EditorContent editor={editor} />
+                {/* Categories and other Widgets Area */}
+                <div className="w-[350px] p-8 border-l border-neutral-800 overflow-y-auto flex flex-col">
+                    {/* Categories Section (Placeholder)*/}
+                    <div className="mb-8">
+                        <h3 className="text-xl font-semibold mb-4 text-white">카테고리</h3>
+                        {/* Category list or component will go here */}
+                        <div className="text-neutral-400">
+                          카테고리 목록...
+                        </div>
+                    </div>
+                    {/* YouTube Panel */}
+                     <YoutubePanel
+                        youtubeUrl={youtubeVideoUrl}
+                        youtubeTitle={youtubeVideoTitle}
+                        youtubeSummary={youtubeVideoSummary}
+                    />
                 </div>
             </div>
-
-            {/* YouTube 정보 패널 */}
-            <YoutubePanel
-                youtubeUrl={youtubeVideoUrl}
-                youtubeTitle={youtubeVideoTitle}
-                youtubeSummary={youtubeVideoSummary}
-            />
         </div>
     )
 }
