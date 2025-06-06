@@ -5,10 +5,12 @@ import { useState, useEffect } from "react";
 import MainContent from "../widget/MainContent";
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import { useAtom } from "jotai";
+import { contentAtom } from "../atom/atom";
 
 export default function Home() {
   const router = useRouter();
-  const [clipboardContent, setClipboardContent] = useState<string>("");
+  const [, setContent] = useAtom(contentAtom);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -25,11 +27,16 @@ export default function Home() {
             prompt: pastedText
           });
           
-          // 응답 데이터를 상태에 저장
-          setClipboardContent(response.data);
+          // API 응답 데이터를 contentAtom에 저장
+          setContent({
+            reply: response.data.reply,
+            og_title: response.data.og_title,
+            og_description: response.data.og_description,
+            og_image: response.data.og_image
+          });
           
-          // new-post 페이지로 이동하면서 데이터 전달
-          router.push(`/new-post?content=${encodeURIComponent(response.data.reply)}`);
+          console.log('API 응답:', response.data);
+          router.push('/new-post');
         } catch (error) {
           console.error('API 요청 실패:', error);
         }
@@ -43,7 +50,7 @@ export default function Home() {
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("paste", handlePaste);
     };
-  }, [router]);
+  }, [router, setContent]);
 
   return (
     <div className="flex min-h-screen bg-white dark:bg-neutral-900">

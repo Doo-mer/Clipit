@@ -5,7 +5,7 @@ import TextAlign from '@tiptap/extension-text-align'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import React, { useState } from 'react'
-import YoutubePanel from '../../widget/YoutubePanel'; // YoutubePanel 컴포넌트 경로에 맞게 수정
+// import YoutubePanel from '../../widget/YoutubePanel'; // YoutubePanel 컴포넌트 경로에 맞게 수정
 
 export default function NewPostPage() { // 컴포넌트 이름 변경
     const [title, setTitle] = useState('');
@@ -56,12 +56,12 @@ export default function NewPostPage() { // 컴포넌트 이름 변경
                 <div className="w-[350px]  border-neutral-800 overflow-y-auto flex flex-col">
                     {/* Categories Section (Placeholder)*/}
                     {/* YouTube Panel */}
-                     <YoutubePanel
+                     {/* <YoutubePanel
                         youtubeUrl={youtubeVideoUrl}
                         youtubeTitle={youtubeVideoTitle}
                         youtubeSummary={youtubeVideoSummary}
                         isViewer={false}
-                    />
+                    /> */}
                 </div>
             </div>
         </div>
