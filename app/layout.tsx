@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/app/widget/Header";
+import Header from "@/widget/Header";
 import localFont from "next/font/local";
-import AuthContext from "./context/AuthContext";
 
 const pretendard = localFont({
   src: "../public/fonts/PretendardVariable.woff2",
@@ -24,10 +23,8 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`mt-14 ${pretendard.variable} font-pretendard`}>
-        <AuthContext>
-          <Header />
-          {children}
-        </AuthContext>
+        <Header />
+        {children}
       </body>
     </html>
   );

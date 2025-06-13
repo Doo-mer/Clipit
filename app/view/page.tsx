@@ -1,23 +1,10 @@
 "use client"
 
-import Highlight from '@tiptap/extension-highlight'
-import TextAlign from '@tiptap/extension-text-align'
-import { EditorContent, useEditor } from '@tiptap/react'
-import StarterKit from '@tiptap/starter-kit'
 import React, { useState } from 'react'
 // import YoutubePanel from '../../widget/YoutubePanel'; // YoutubePanel 컴포넌트 경로에 맞게 수정
 
 export default function NewPostPage() { // 컴포넌트 이름 변경
-    const [title, setTitle] = useState('');
-    const [tagInput, setTagInput] = useState('');
     const [tags, setTags] = useState<string[]>(['실천', '인정']);
-
-    // YouTube 패널에 전달할 상태 추가
-    const [youtubeVideoUrl, setYoutubeVideoUrl] = useState('https://www.youtube.com/watch?v=dQw4w9WgXcQ'); // 예시 URL
-    const [youtubeVideoTitle, setYoutubeVideoTitle] = useState('Rick Astley - Never Gonna Give You Up (Official Music Video)');
-    const [youtubeVideoSummary, setYoutubeVideoSummary] = useState(
-        '유명한 릭롤링(Rickrolling) 밈의 원조인 릭 애슬리의 "Never Gonna Give You Up" 공식 뮤직 비디오입니다. 이 곡은 1987년에 발매되어 전 세계적으로 큰 인기를 끌었으며, 중독성 있는 멜로디와 애슬리의 독특한 보컬로 현재까지도 많은 사랑을 받고 있습니다.'
-    );
 
     return (
         <div className="flex flex-col h-screen bg-neutral-900 text-white">

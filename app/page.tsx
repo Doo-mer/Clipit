@@ -2,11 +2,11 @@
 
 import React from "react";
 import { useState, useEffect } from "react";
-import MainContent from "./widget/MainContent";
+import MainContent from "@/widget/MainContent";
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useAtom } from "jotai";
-import { contentAtom } from "./atom/atom";
+import { contentAtom } from "../atom/atom";
 
 export default function Home() {
   const router = useRouter();
@@ -23,13 +23,15 @@ export default function Home() {
       const pastedText = event.clipboardData?.getData('text');
       if (pastedText) {
         try {
+          // 먼저 new-post 페이지로 이동
           router.push('/new-post');
-
+          
+          // 이후 gemini 에게 신호를 보내서 요약 정보를 얻음ㅇ
           const response = await axios.post('http://localhost:8000/chat/', {
             prompt: pastedText
           });
           
-          // API 응답 데이터를 contentAtom에 저장
+          // 응답 데이터를 contentAtom에 저장
           await setContent({
             reply: response.data.reply,
             og_title: response.data.og_title,

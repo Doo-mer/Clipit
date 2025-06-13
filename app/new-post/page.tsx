@@ -1,5 +1,5 @@
 "use client";
-import Tiptap from "@/app/widget/Tiptap";
+import Tiptap from "@/widget/Tiptap";
 
 export default function Home() {
   return (

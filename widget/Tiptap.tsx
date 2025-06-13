@@ -20,7 +20,7 @@ import {
 // SummaryPanel 컴포넌트 임포트 (경로에 맞게 수정)
 import SummaryPanel from './SummaryPanel';
 import { useAtomValue } from 'jotai'
-import { contentAtom } from '../atom/atom'
+import { contentAtom } from '@/atom/atom'
 
 // MenuBar 컴포넌트 (기존 NewPostPage의 MenuBar와 동일)
 const MenuBar = ({ editor }: { editor: any }) => {
