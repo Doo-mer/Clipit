@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import "../globals.css";
+import "./globals.css";
 import Header from "@/app/widget/Header";
-import localFont from "next/font/local"
-import AuthContext from "../context/AuthContext";
+import localFont from "next/font/local";
+import AuthContext from "./context/AuthContext";
 
 const pretendard = localFont({
-  src: "../../public/fonts/PretendardVariable.woff2",
+  src: "../public/fonts/PretendardVariable.woff2",
   display: "swap",
   weight: "100 900",
   variable: "--font-pretendard"
-})
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,15 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`mt-14 ${pretendard.variable} font-pretendard`}
-      >
+    <html lang="ko">
+      <body className={`mt-14 ${pretendard.variable} font-pretendard`}>
         <AuthContext>
-          <Header/>
+          <Header />
           {children}
         </AuthContext>
       </body>
     </html>
   );
-}
+} 

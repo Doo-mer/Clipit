@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Search, Bell, Settings, Trash2, FileDown, Star, Share2, Copy, User } from 'lucide-react';
+import { Search, Bell, Settings, Trash2, FileDown, Star, Share2, Copy, User, LogOut } from 'lucide-react';
 import Image from "next/image";
 import Link from "next/link";
 import { useSession, signIn, signOut } from 'next-auth/react';
@@ -20,7 +20,7 @@ export default function Header({ variant = 'main' }: HeaderProps) {
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center mx-2">
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="Clipit Logo"
               width={60}
               height={20}
@@ -43,19 +43,25 @@ export default function Header({ variant = 'main' }: HeaderProps) {
                   className="w-8 h-8 rounded-full"
                 />
               )}
+              <div className="flex flex-col items-end">
+                <span className="text-sm text-white">{session.user?.name}</span>
+                <span className="text-xs text-neutral-400">{session.user?.email}</span>
+              </div>
               <button
                 onClick={() => signOut()}
                 className="p-2 hover:bg-neutral-800 rounded-full text-neutral-400 hover:text-white transition-colors"
+                title="로그아웃"
               >
-                <User size={20} />
+                <LogOut size={20} />
               </button>
             </div>
           ) : (
             <button
               onClick={() => signIn('google')}
-              className="p-2 hover:bg-neutral-800 rounded-full text-neutral-400 hover:text-white transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-white text-neutral-900 rounded-full hover:bg-neutral-100 transition-colors"
             >
               <User size={20} />
+              <span>로그인</span>
             </button>
           )}
         </div>

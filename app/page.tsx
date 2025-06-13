@@ -2,11 +2,11 @@
 
 import React from "react";
 import { useState, useEffect } from "react";
-import MainContent from "../widget/MainContent";
+import MainContent from "./widget/MainContent";
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useAtom } from "jotai";
-import { contentAtom } from "../atom/atom";
+import { contentAtom } from "./atom/atom";
 
 export default function Home() {
   const router = useRouter();
@@ -23,7 +23,7 @@ export default function Home() {
       const pastedText = event.clipboardData?.getData('text');
       if (pastedText) {
         try {
-          await router.push('/new-post');
+          router.push('/new-post');
 
           const response = await axios.post('http://localhost:8000/chat/', {
             prompt: pastedText
