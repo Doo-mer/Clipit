@@ -24,7 +24,7 @@ const SummaryPanel: React.FC<SummaryPanelProps> = ({
   console.log(title, summary, imageLink)
 
   return (
-    <div className="fixed right-0 top-0 h-full w-[350px] p-6 flex flex-col mt-20">
+    <div className="fixed right-0 top-0 h-full w-[350px] p-6 flex flex-col pt-20">
       {(
         <div className="w-full aspect-video rounded-lg overflow-hidden mb-4 h-30">
           <img
@@ -41,7 +41,7 @@ const SummaryPanel: React.FC<SummaryPanelProps> = ({
         <p className="whitespace-pre-wrap">{summary || '여기에 요약 내용이 표시됩니다.'}</p>
       </div>
       {
-        isViewer &&
+        !isViewer &&
         <div className="flex justify-between items-center mt-auto border-t border-neutral-700 pt-4 gap-2">
           <button
             className="flex-1 flex items-center justify-center gap-2 px-4 py-2 text-neutral-400 hover:text-white transition-colors border border-neutral-700 rounded-lg"

@@ -23,12 +23,14 @@ export default function Home() {
       const pastedText = event.clipboardData?.getData('text');
       if (pastedText) {
         try {
+          await router.push('/new-post');
+
           const response = await axios.post('http://localhost:8000/chat/', {
             prompt: pastedText
           });
           
           // API 응답 데이터를 contentAtom에 저장
-          setContent({
+          await setContent({
             reply: response.data.reply,
             og_title: response.data.og_title,
             og_description: response.data.og_description,
@@ -36,7 +38,6 @@ export default function Home() {
           });
           
           console.log('API 응답:', response.data);
-          router.push('/new-post');
         } catch (error) {
           console.error('API 요청 실패:', error);
         }
