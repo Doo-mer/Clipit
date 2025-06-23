@@ -1,10 +1,10 @@
 "use client"
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 // import YoutubePanel from '../../widget/YoutubePanel'; // YoutubePanel 컴포넌트 경로에 맞게 수정
 
 export default function NewPostPage() { // 컴포넌트 이름 변경
-    const [tags, setTags] = useState<string[]>(['실천', '인정']);
+    const [tags,] = useState<string[]>(['실천', '인정']);
 
     return (
         <div className="flex flex-col h-screen bg-neutral-900 text-white">

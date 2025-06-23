@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import MainContent from "@/widget/MainContent";
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
